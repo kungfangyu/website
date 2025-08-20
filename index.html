@@ -1,600 +1,619 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-        <title>Fangyu's Wabsite</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-                crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-                integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-                crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./css/animate.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <link rel="stylesheet" href="css/slick-theme.css">
-        <link rel="stylesheet" href="css/slick.css">
-        <link rel="stylesheet" href="css/timelify.css">
-        <link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fang-Yu Kung - Front-end Engineer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9f4',
+                            100: '#dcf2e3',
+                            200: '#bce5cb',
+                            300: '#8dd1a8',
+                            400: '#57b67f',
+                            500: '#6f775a',
+                            600: '#575d47',
+                            700: '#4a4f3c',
+                            800: '#3d4132',
+                            900: '#33362b',
+                        },
+                        secondary: {
+                            50: '#f8f9fa',
+                            100: '#f1f3f4',
+                            200: '#e8eaed',
+                            300: '#dadce0',
+                            400: '#bdc1c6',
+                            500: '#9aa0a6',
+                            600: '#80868b',
+                            700: '#5f6368',
+                            800: '#3c4043',
+                            900: '#202124',
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Bebas Neue', 'cursive'],
+                        'body': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in-down': 'fadeInDown 0.6s ease-out',
+                        'fade-in-left': 'fadeInLeft 0.6s ease-out',
+                        'fade-in-right': 'fadeInRight 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
 </head>
 
-<body>
-        <!-- 自傳 -->
-        <!-- <div class="modal fade" id="aboutMe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">關於我</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                        </button>
-                                </div>
-                                <div class="modal-body">
-                                        <p>我是屏東人，大學開始到台北讀書、工作。因緣際會下接觸到了UIUX的課程，並開始接觸前端開發。碩班畢業後投入了半年的時間在資策會UIUX課技師就業養成專班，這是我給自己最後全力衝刺的機會，短短半年中，從使用者體驗設計到程式碼的開發，與組員協同合作從無到有建立起一個中型的旅遊售票網站，並負責前端的頁面開發。
-                                        </p>
-                                        <p>接著，應徵到了遠見天下文化業群(遠見雜誌)裡擔任前端工程師一職，負責每月的數位深度專題的網站開發，全程參與前置作業，與記者、設計師、企劃的跨部門合作，共同協調出各方希望達到的網站效果，製作出專題網站，並在規定的日期準時上線，以及子網站的從無到有前端開發，與後端工程師協同合作，討論後台的資料與前端應該如何配合，讓雙方的工作更順暢。
-                                        </p>
-                                        <p>一年後，我到了奇點無限，在奇點無限我體驗到了新創公司的彈性，以及給予更多學習的空間，再加上有資深的前輩能夠給予意見，在這裡我使用了與多人共同開發時所要用到的Git版本控制，以及有個更多JavaScript
-                                                ES6的運用，從無到有與後端工程師協同開發出提供給公司人員發布技術文章的技術部落格網站，包含了前台的版面、互動效果及後台發文上稿的系統頁面、串接資料。也曾在完全不會React及TypeScript時被賦予需要跟同事共同合作開發系統網站的任務，在這次經驗上體會到了隨時要準備好遇到不熟悉的技能應該要如何應對，並提升自己解決問題的能力。在上班之餘持續精進前端框架React以及Svelte等技術並製作自己的side
-                                                project 。
-                                        </p>
-                                        <p>在我決定要踏上前端的路之後，就抱持著不設限自己的態度，持續精進學習，在工作上發揮最大的能力協助公司完成各項需求，並實現自我價值。</p>
-                                </div>
-                        </div>
+<body class="bg-gray-50 font-body">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-gray-900">Fang-Yu Kung</h1>
                 </div>
-        </div> -->
-        <div class="navBar">
-                <div class="container d-flex justify-content-end">
-                        <ul class="menu">
-                                <li><a href="#" id="menu_item01">About Me</a></li>
-                                <li><a href="#project" id="menu_item02">Projects</a></li>
-                                <li><a href="#experience" id="menu_item03">Experiences</a></li>
-                                <li><a href="#contact" id="menu_item04">Contact</a></li>
-                        </ul>
-                        <div class="burger" onclick=""><i class="fas fa-bars"></i>
-                        </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">About Me</a>
+                        <a href="#projects" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="#experience" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Experience</a>
+                        <a href="#contact" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
                 </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="menuOverlay">
-                <div class="container">
-                        <div class="menuClose" id="menuClose"><i class="fas fa-times"></i></div>
-                        <ul class="mb_menu">
-                                <li class="animated fadeInRight delay-2ss" id="mb_menu_item01"><a href="#">About Me</a>
-                                </li>
-                                </li>
-                                <li class="animated  fadeInRight  delay-3ss" id="mb_menu_item02"><a
-                                                href="#project">Project</a>
-                                </li>
-                                <li class="animated  fadeInRight delay-4ss" id="mb_menu_item03"><a
-                                                href="#experience">Experiences</a>
-                                </li>
-                                <li class="animated  fadeInRight delay-5ss" id="mb_menu_item04"><a
-                                                href="#contact">Contact</a></li>
-                        </ul>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl font-bold text-gray-900">Menu</h2>
+                    <button id="mobile-menu-close" class="text-gray-700 hover:text-primary-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
                 </div>
+                <nav class="space-y-4">
+                    <a href="#about" class="block text-gray-700 hover:text-primary-600 py-3 text-lg font-medium transition-colors mobile-menu-link">About Me</a>
+                    <a href="#projects" class="block text-gray-700 hover:text-primary-600 py-3 text-lg font-medium transition-colors mobile-menu-link">Projects</a>
+                    <a href="#experience" class="block text-gray-700 hover:text-primary-600 py-3 text-lg font-medium transition-colors mobile-menu-link">Experience</a>
+                    <a href="#contact" class="block text-gray-700 hover:text-primary-600 py-3 text-lg font-medium transition-colors mobile-menu-link">Contact</a>
+                </nav>
+            </div>
         </div>
-        <div class="mainSection" id="mainSection"></div>
-        <div class="about" id="about">
-                <div class="container">
-                        <div class="mainContent">
-                                <div class="mainPic">
-                                </div>
-                        </div>
-                        <div class="mainTitle">
-                                <h2 class="wow animated bounceInDown">Hello! &nbsp; I'm Fang-Yu Kung</h2>
-                                <div class="content">
-                                        <p>I am an experienced Front-end Engineer with 4 years of web development
-                                                expertise, currently pursuing a Master's degree in Computer Science at
-                                                Newcastle University.</p>
-                                        <p>I am a collaborative and communicative individual who enjoys
-                                                working with professionals from different departments to achieve project
-                                                objectives.</p>
-                                        <p> My ultimate goal is to become a versatile software engineer
-                                                proficient in both front-end and back-end development, capable of
-                                                leading teams in collaborative development and problem-solving.</p>
+    </nav>
 
-                                        <!-- <a class="moreBtn" data-toggle="modal" data-target="#aboutMe"><i
-                                                        class="fas fa-hand-point-up mr-2"></i>看自傳</a> -->
-                                </div>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <div class="mb-8" data-aos="fade-down">
+                <div class="w-48 h-48 mx-auto mb-8 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl">
+                    <img src="img/fangyu.jpg" alt="Fang-Yu Kung" class="w-full h-full object-cover">
                 </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6" data-aos="fade-up" data-aos-delay="200">
+                Hello! I'm Fang-Yu Kung
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+                Experienced Front-end Engineer with 4 years of web development expertise, currently pursuing a Master's degree in Computer Science at Newcastle University.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+                <a href="#projects" class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    View My Work
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors">
+                    Get In Touch
+                </a>
+            </div>
         </div>
-        <!-- proj---------------------------------------------------------------------------- -->
-        <div class="project" id="project">
-                <h2 class="subtitle">My Projects</h2>
-                <div class="container">
-                        <div class="projGroup">
-                                <h3>Event Sites</h3>
-                                <!-- <p>主要負責網頁前端切版、開發，動態效果設計</p> -->
-                                <div class="myProj wow animated fadeInUp">
-                                        <!-- <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/202003_COVID-19/"
-                                                                target="_blank">
-                                                                <img src="img/t-10.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">COVID-19</h5>
-                                                                        <a href="https://event.gvm.com.tw/202003_COVID-19/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div> -->
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/201911_Two_Faces_of_Taiwan/"
-                                                                target="_blank">
-                                                                <img src="img/t-1.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Two Faces of Taiwan</h5>
-                                                                        <a href="https://event.gvm.com.tw/201911_Two_Faces_of_Taiwan/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/202002_president/"
-                                                                target="_blank">
-                                                                <img src="img/t-6.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">2020 President</h5>
-                                                                        <a href="https://city.gvm.com.tw/event/201909_Travel/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://city.gvm.com.tw/event/201909_Travel/"
-                                                                target="_blank">
-                                                                <img src="img/t-3.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Travel in Winter</h5>
-                                                                        <a href="https://city.gvm.com.tw/event/201909_Travel/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/201906_migrant-worker/"
-                                                                target="_blank">
-                                                                <img src="img/t-2.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Migrant Worker</h5>
-                                                                        <a href="https://event.gvm.com.tw/201906_migrant-worker/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://city.gvm.com.tw/event/201909_Buildingrenewal/"
-                                                                target="_blank">
-                                                                <img src="img/t-4.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Building Renewal</h5>
-                                                                        <a href="https://city.gvm.com.tw/event/201909_Buildingrenewal/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/201908_Yuanlin/"
-                                                                target="_blank">
-                                                                <img src="img/t-5.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Yuanlin in Taiwan</h5>
-                                                                        <a href="https://event.gvm.com.tw/201908_Yuanlin/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/201911_AI/" target="_blank">
-                                                                <img src="img/t-8.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">AI</h5>
-                                                                        <a href="https://event.gvm.com.tw/201911_AI/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/202001_trend/"
-                                                                target="_blank">
-                                                                <img src="img/t-7.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">2020 Global trend</h5>
-                                                                        <a href="https://event.gvm.com.tw/202001_trend/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://event.gvm.com.tw/201910_Australia/"
-                                                                target="_blank">
-                                                                <img src="img/t-9.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Issue in Australia</h5>
-                                                                        <a href="https://event.gvm.com.tw/201910_Australia/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="projGroup">
-                                <h3>Official Sites</h3>
-                                <!-- <p>主要負責網頁前端切版、開發以及後續網站維護，與後端工程師協同合作</p> -->
-                                <div class="myProj wow animated fadeInUp">
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://blog.airouting.io/" target="_blank">
-                                                                <img src="img/b-4.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Singularity & Infinity
-                                                                                Blog</h5>
-                                                                        <a href="https://blog.airouting.io/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://city.gvm.com.tw/" target="_blank">
-                                                                <img src="img/b-1.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">GVM City official website
-                                                                        </h5>
-                                                                        <a href="https://city.gvm.com.tw/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://csr.gvm.com.tw/2020/" target="_blank">
-                                                                <img src="img/b-2.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">GVM CSR official website
-                                                                        </h5>
-                                                                        <a href="https://csr.gvm.com.tw/2020/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://health.gvm.com.tw/" target="_blank">
-                                                                <img src="img/b-3.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">GVM Health official
-                                                                                website</h5>
-                                                                        <a href="https://health.gvm.com.tw/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                        <!-- <div class="projGroup">
-                                <h3>Side Projects</h3>
-                                <div class="myProj wow animated fadeInUp">
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://kungfangyu.github.io/react-side-project-food-order/"
-                                                                target="_blank">
-                                                                <img src="img/s-1.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">Thai Ho Ja 訂餐系統 (React)
-                                                                        </h5>
-                                                                        <a href="https://kungfangyu.github.io/react-side-project-food-order/"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div>
-                                                <div class="card">
-                                                        <a href="https://kungfangyu.github.io/react-side-project-funds"
-                                                                target="_blank">
-                                                                <img src="img/s-2.jpg" class="card-img-top">
-                                                                <div class="card-body">
-                                                                        <h5 class="card-title">拼拼募資(React+Tailwind)</h5>
-                                                                        <a href="https://kungfangyu.github.io/react-side-project-funds"
-                                                                                target="_blank" class="btn"><i
-                                                                                        class="fas fa-angle-double-right"></i></a>
-                                                                </div>
-                                                        </a>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div> -->
-                </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
         </div>
-        <!-- <div class="skills">
-                <h2 class="subtitle">Skills</h2>
-                <div class="container skillBox row justify-content-center">
-                        <div class="col-lg-3 skillIcon wow animated fadeInUp">
-                                <div class="circle"><i class="fas fa-code"></i></div>
-                                <h3>Programme Languages</h3>
-                                <ul>
-                                        <li>-JavaScript</li>
-                                        <li>-TypeScript</li>
-                                        <li>-JAVA</li>
-                                        <li>-CSS/SCSS/SASS</li>
-                                </ul>
+    </section>
 
-                        </div>
-                        <div class="col-lg-3 skillIcon wow animated fadeInUp">
-                                <div class="circle"><i class="fas fa-paint-brush"></i></div>
-                                <h3>Framework</h3>
-                                <ul>
-                                        <li>-React</li>
-                                        <li>-React Hooks</li>
-                                        <li>-Svelte</li>
-                                        <li>-Next.js</li>
-                                </ul>
-                        </div>
-
-                        <div class="col-lg-3 skillIcon wow animated fadeInUp">
-                                <div class="circle"><i class="fas fa-feather-alt"></i></div>
-                                <h3>Dev Tools and Database</h3>
-                                <ul>
-                                        <li>-SQL / MySQL / MongoDB</li>
-                                        <li>-Git</li>
-                                        <li>-Jest</li>
-                                        <li>-React Testing Library</li>
-                                        <li>-CI/CD</li>
-                                </ul>
-                        </div>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="prose prose-lg text-gray-600 space-y-6">
+                        <p>
+                            I am an experienced Front-end Engineer with 4 years of web development expertise, currently pursuing a Master's degree in Computer Science at Newcastle University.
+                        </p>
+                        <p>
+                            I am a collaborative and communicative individual who enjoys working with professionals from different departments to achieve project objectives.
+                        </p>
+                        <p>
+                            My ultimate goal is to become a versatile software engineer proficient in both front-end and back-end development, capable of leading teams in collaborative development and problem-solving.
+                        </p>
+                    </div>
                 </div>
-        </div> -->
-
-        <!-- ---------------時間軸-------------------------------------------------------------- -->
-        <div class="experience" id="experience">
-                <h2 class="subtitle" style="color: #575d47;">WORK EXPERIENCES & EDUCATION</h2>
-                <div class="container">
-                        <div class="timeline">
-                                <h2>2023-Now</h2>
-                                <ul class="timeline-items">
-                                        <li class="is-hidden timeline-item inverted">
-                                                <h3>Newcastle university</h3>
-                                                <h3>MSc Computer Science</h3>
-                                                <hr>
-                                                <time>2023/09-2024/09</time>
-                                        </li>
-                                </ul>
-                                <h2>2021- 2023</h2>
-                                <ul class="timeline-items">
-                                        <li class="is-hidden timeline-item">
-                                                <h3>ASUSTeK Computer Inc.</h3>
-                                                <h3>Senior Front-end engineer</h3>
-                                                <hr>
-                                                <p>1.Developed CMS of ASUS's official website, EC store, product middle
-                                                        platform, and
-                                                        ProArt, and integrated them into a monorepo for improved team
-                                                        maintenance efficiency.
-                                                </p>
-                                                <p>2.Utilizing React, TypeScript, and Jest to develop content management
-                                                        systems and conduct unit testing.</p>
-                                                <p>3.Implementing CI/CD automation process, resulting in a 30% reduction
-                                                        in deployment time and fewer production issues</p>
-                                                <p>4.Utilized Git for effective version control, ensuring code integrity
-                                                        and collaboration among development teams.</p>
-                                                <p>5.Successfully integrated front-end components with back-end systems,
-                                                        delivering cohesive and efficient web applications.</p>
-                                                <hr>
-                                                <time>22021/11 - 2023/08</time>
-                                        </li>
-                                </ul>
-                                <h2>2020 - 2021</h2>
-                                <ul class="timeline-items">
-                                        <li class="is-hidden timeline-item inverted">
-                                                <h3>Singularity & Infinity Co., Ltd.</h3>
-                                                <h3>Front-end engineer</h3>
-                                                <hr>
-                                                <p>1.Developed a customized Content Management System(CMS) for the
-                                                        company’s blog and official site, leveraging JavaScript, Svelte,
-                                                        and UI framework(Material UI, UI kits), resulting in streamlined
-                                                        content management processes</p>
-                                                <p>2.Implemented user-friendly interfaces for content editors, improving
-                                                        the overall user experience.</p>
-                                                <p>3.Engineered a front-end CMS tailored for B2B marketing initiatives,
-                                                        using React, TypeScript, ensuring seamless responsiveness and
-                                                        intuitive usability</p>
-                                                <p>4.To lead interns in collaborative project completion and provide
-                                                        guidance on the
-                                                        application of HTML, SASS, and JavaScript</p>
-                                                <hr>
-                                                <time>2020/04-2021/10</time>
-                                        </li>
-                                </ul>
-                                <h2>2019 - 2020</h2>
-                                <ul class="timeline-items">
-
-                                        <li class="is-hidden timeline-item">
-                                                <h3>Global Views-Commonwealth Publish Group</h3>
-                                                <h3>Front-end engineer</h3>
-                                                <hr>
-                                                <p>1.Experienced in thematic website development, employing a mix of
-                                                        HTML, SCSS, JavaScript, and jQuery to create engaging and
-                                                        dynamic online experiences.</p>
-                                                <p>2.Designed and executed the project with a focus on user experience,
-                                                        resulting in a clear and intuitive layout with responsive web
-                                                        design. (RWD)</p>
-                                                <p>3.Improved SEO and OG meta tags, resulting in a 20% increase in
-                                                        organic traffic.
-                                                </p>
-                                                <p>4.To lead interns in collaborative project completion and provide
-                                                        guidance on the
-                                                        application of HTML, SASS, and JavaScript</p>
-                                                <hr>
-                                                <time>2019/03-2020/03</time>
-                                        </li>
-                                </ul>
-                                <h2>2016</h2>
-                                <ul class="timeline-items">
-                                        <li class="is-hidden timeline-item inverted">
-                                                <h3>National Taiwan University of Arts
-                                                </h3>
-                                                <hr>
-
-                                                <h3>MSc Graphic Communication Art</h3>
-                                                <hr>
-                                                <time>2016/09-2018/06</time>
-                                        </li>
-                                </ul>
+                
+                <div data-aos="fade-left">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-xl text-center">
+                            <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-code text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Frontend</h3>
+                            <p class="text-sm text-gray-600">React, TypeScript, JavaScript, HTML/CSS</p>
                         </div>
+                        
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-tools text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Tools</h3>
+                            <p class="text-sm text-gray-600">Git, Jest, CI/CD, Webpack</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl text-center">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-database text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Backend</h3>
+                            <p class="text-sm text-gray-600">Node.js, SQL, MongoDB</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl text-center">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Design</h3>
+                            <p class="text-sm text-gray-600">Responsive Design, UI/UX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">My Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A collection of projects showcasing my expertise in web development and design
+                </p>
+            </div>
+
+            <!-- Event Sites -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center" data-aos="fade-up">Event Sites</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <img src="img/t-1.jpg" alt="Two Faces of Taiwan" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">Two Faces of Taiwan</h4>
+                            <p class="text-gray-600 mb-4">Digital storytelling project exploring Taiwan's cultural diversity</p>
+                            <a href="https://event.gvm.com.tw/201911_Two_Faces_of_Taiwan/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <img src="img/t-6.jpg" alt="2020 President" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">2020 President</h4>
+                            <p class="text-gray-600 mb-4">Interactive election coverage and analysis platform</p>
+                            <a href="https://event.gvm.com.tw/202002_president/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <img src="img/t-3.jpg" alt="Travel in Winter" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">Travel in Winter</h4>
+                            <p class="text-gray-600 mb-4">Travel guide and recommendation platform</p>
+                            <a href="https://city.gvm.com.tw/event/201909_Travel/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <img src="img/t-2.jpg" alt="Migrant Worker" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">Migrant Worker</h4>
+                            <p class="text-gray-600 mb-4">Documentary project on migrant worker experiences</p>
+                            <a href="https://event.gvm.com.tw/201906_migrant-worker/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <img src="img/t-8.jpg" alt="AI" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">AI Future</h4>
+                            <p class="text-gray-600 mb-4">Exploring AI's impact on future workforce</p>
+                            <a href="https://event.gvm.com.tw/201911_AI/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <img src="img/t-7.jpg" alt="2020 Global trend" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">2020 Global Trend</h4>
+                            <p class="text-gray-600 mb-4">Analysis of global trends and predictions</p>
+                            <a href="https://event.gvm.com.tw/202001_trend/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Official Sites -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center" data-aos="fade-up">Official Sites</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <img src="img/b-4.jpg" alt="Singularity & Infinity Blog" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">S&I Blog</h4>
+                            <p class="text-gray-600 text-sm mb-4">Technical blog platform</p>
+                            <a href="https://blog.airouting.io/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
+                                View Site <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <img src="img/b-1.jpg" alt="GVM City" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">GVM City</h4>
+                            <p class="text-gray-600 text-sm mb-4">Urban development platform</p>
+                            <a href="https://city.gvm.com.tw/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
+                                View Site <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <img src="img/b-2.jpg" alt="GVM CSR" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">GVM CSR</h4>
+                            <p class="text-gray-600 text-sm mb-4">Corporate responsibility site</p>
+                            <a href="https://csr.gvm.com.tw/2020/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
+                                View Site <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="400">
+                        <img src="img/b-3.jpg" alt="GVM Health" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">GVM Health</h4>
+                            <p class="text-gray-600 text-sm mb-4">Health information portal</p>
+                            <a href="https://health.gvm.com.tw/" target="_blank" 
+                               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
+                                View Site <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">Work Experience & Education</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto"></div>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full timeline-line hidden lg:block"></div>
+
+                <!-- Timeline items -->
+                <div class="space-y-12">
+                    <!-- Newcastle University -->
+                    <div class="flex flex-col lg:flex-row items-center" data-aos="fade-up">
+                        <div class="lg:w-1/2 lg:pr-8 lg:text-right">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Newcastle University</h3>
+                                <h4 class="text-lg font-semibold text-blue-600 mb-3">MSc Computer Science</h4>
+                                <p class="text-gray-600 text-sm">2023/09 - 2024/09</p>
+                            </div>
+                        </div>
+                        <div class="hidden lg:block w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="lg:w-1/2 lg:pl-8"></div>
+                    </div>
+
+                    <!-- ASUS -->
+                    <div class="flex flex-col lg:flex-row items-center" data-aos="fade-up">
+                        <div class="lg:w-1/2 lg:pr-8"></div>
+                        <div class="hidden lg:block w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="lg:w-1/2 lg:pl-8">
+                            <div class="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">ASUSTeK Computer Inc.</h3>
+                                <h4 class="text-lg font-semibold text-primary-600 mb-3">Senior Front-end Engineer</h4>
+                                <ul class="text-gray-600 text-sm space-y-2 mb-3">
+                                    <li>• Developed CMS for ASUS's official website and EC store</li>
+                                    <li>• Utilized React, TypeScript, and Jest for development</li>
+                                    <li>• Implemented CI/CD automation, reducing deployment time by 30%</li>
+                                    <li>• Successfully integrated front-end with back-end systems</li>
+                                </ul>
+                                <p class="text-gray-600 text-sm">2021/11 - 2023/08</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Singularity & Infinity -->
+                    <div class="flex flex-col lg:flex-row items-center" data-aos="fade-up">
+                        <div class="lg:w-1/2 lg:pr-8 lg:text-right">
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Singularity & Infinity Co., Ltd.</h3>
+                                <h4 class="text-lg font-semibold text-purple-600 mb-3">Front-end Engineer</h4>
+                                <ul class="text-gray-600 text-sm space-y-2 mb-3">
+                                    <li>• Developed customized CMS using JavaScript and Svelte</li>
+                                    <li>• Engineered B2B marketing CMS with React and TypeScript</li>
+                                    <li>• Led interns in collaborative project completion</li>
+                                    <li>• Implemented responsive and intuitive user interfaces</li>
+                                </ul>
+                                <p class="text-gray-600 text-sm">2020/04 - 2021/10</p>
+                            </div>
+                        </div>
+                        <div class="hidden lg:block w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="lg:w-1/2 lg:pl-8"></div>
+                    </div>
+
+                    <!-- Global Views -->
+                    <div class="flex flex-col lg:flex-row items-center" data-aos="fade-up">
+                        <div class="lg:w-1/2 lg:pr-8"></div>
+                        <div class="hidden lg:block w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="lg:w-1/2 lg:pl-8">
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Global Views-Commonwealth Publish Group</h3>
+                                <h4 class="text-lg font-semibold text-green-600 mb-3">Front-end Engineer</h4>
+                                <ul class="text-gray-600 text-sm space-y-2 mb-3">
+                                    <li>• Developed thematic websites with HTML, SCSS, and JavaScript</li>
+                                    <li>• Focused on responsive web design and user experience</li>
+                                    <li>• Improved SEO resulting in 20% increase in organic traffic</li>
+                                    <li>• Led interns in collaborative development projects</li>
+                                </ul>
+                                <p class="text-gray-600 text-sm">2019/03 - 2020/03</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="flex flex-col lg:flex-row items-center" data-aos="fade-up">
+                        <div class="lg:w-1/2 lg:pr-8 lg:text-right">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">National Taiwan University of Arts</h3>
+                                <h4 class="text-lg font-semibold text-gray-600 mb-3">MSc Graphic Communication Art</h4>
+                                <p class="text-gray-600 text-sm">2016/09 - 2018/06</p>
+                            </div>
+                        </div>
+                        <div class="hidden lg:block w-4 h-4 bg-gray-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="lg:w-1/2 lg:pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Let's discuss how we can work together to bring your ideas to life
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-gray-800 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-300">kungfangyu@gmail.com</p>
                 </div>
 
-        </div>
-        <!-- ---------------時間軸 END------------------------------------------------------- -->
-        <div class="contact" id="contact">
-                <h2 class="subtitle">Contact</h2>
-                <div class="container">
-                        <div class="row d-flex justify-content-center mt-3 wow animated fadeInUp">
-                                <div class="col-lg-3 text-center">
-                                        <h3><i class="fas fa-paper-plane mr-3"></i>E-mail</h3>
-                                        <p>kungfangyu@gmail.com</p>
-                                </div>
-                                <div class="col-lg-3 text-center">
-                                        <h3><i class="fas fa-mobile-alt mr-3"></i>Mobile Number</h3>
-                                        <!-- <p>0935-255-211</p> -->
-                                        <p>+44-2032906207</p>
-                                </div>
-                                <div class="col-lg-3 text-center">
-                                        <h3><i class="fab fa-line mr-3"></i>Line ID</h3>
-                                        <p>fish19921026</p>
-                                </div>
-
-                        </div>
-
+                <div class="bg-gray-800 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                    <p class="text-gray-300">+44-2032906207</p>
                 </div>
+
+                <div class="bg-gray-800 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Line ID</h3>
+                    <p class="text-gray-300">fish19921026</p>
+                </div>
+            </div>
         </div>
-        <div class="footer">
-                <p>Copyright©. All rights reserved. </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">&copy; 2024 Fang-Yu Kung. All rights reserved.</p>
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-        <script src="js/menu.js"></script>
-        <script type="text/javascript" src="js/slick.js"></script>
+    </footer>
 
-        <script src="js/jquery.timelify.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
 
-        <script>
-                $('.timeline').timelify({
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-                        // animation types
-                        animLeft: "bounceInLeft",
-                        animRight: "bounceInRight",
-                        animCenter: "bounceInUp",
-                        animSpeed: 300,
-                        offset: 150
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
 
-                });
-        </script>
-        <script>
-                $('.myProj').slick({
-                        infinite: true,
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        dots: true,
-                        responsive: [
-                                {
-                                        breakpoint: 1024,
-                                        settings: {
-                                                slidesToShow: 3,
-                                                slidesToScroll: 3,
-                                                infinite: true,
-                                                dots: true
-                                        }
-                                },
-                                {
-                                        breakpoint: 600,
-                                        settings: {
-                                                slidesToShow: 2,
-                                                slidesToScroll: 2
-                                        }
-                                },
-                                {
-                                        breakpoint: 480,
-                                        settings: {
-                                                slidesToShow: 1,
-                                                slidesToScroll: 1
-                                        }
-                                }
-                                // You can unslick at a given breakpoint now by adding:
-                                // settings: "unslick"
-                                // instead of a settings object
-                        ]
-                });
-        </script>
-        <script>
-                wow = new WOW(
-                        {
-                                boxClass: 'wow',      // default
-                                animateClass: 'animated', // default
-                                offset: 0,          // default
-                                mobile: true,       // default
-                                live: true        // default
-                        }
-                )
-                wow.init();
-        </script>
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95');
+                navbar.classList.remove('bg-white/90');
+            } else {
+                navbar.classList.add('bg-white/90');
+                navbar.classList.remove('bg-white/95');
+            }
+        });
+    </script>
 </body>
-
 </html>
